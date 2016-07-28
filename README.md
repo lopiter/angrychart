@@ -3,7 +3,7 @@
 
 ## Getting Started
 - install node
-- install gulp(https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
+- install gulp
 
 ## Build Type Script
 - npm install
