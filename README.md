@@ -6,7 +6,6 @@
 - install gulp(https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
 
 ## Build Type Script
-- requirement
 - npm install
 - gulp build (window user : npm run gulp build)
 
