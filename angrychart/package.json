@@ -4,7 +4,8 @@
   "scripts": {
     "lite": "lite-server",
     "typings": "typings",
-    "postinstall": "typings install"
+    "postinstall": "typings install",
+    "gulp" : "gulp"
   },
   "description": "component for chart",
   "main": "index.js",
