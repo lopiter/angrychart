@@ -29,7 +29,7 @@ config = {
         systemConfigJs: './systemjs.config.js'
     };
 
-    gulp.task('baseJs-folders', ['move-baseJs' , 'move-systemConfigJs' , 'move-systemConfigJs'] , () => {
+    gulp.task('baseJs-folders', ['move-baseJs' , 'move-systemConfigJs' , 'move-systemConfigJs'] , function() {
         gulp.src(config.baseJsToFolders.angular)
             .pipe(gulp.dest(config.targetJsFolder + '/@angular'));
 
@@ -40,12 +40,12 @@ config = {
             .pipe(gulp.dest(config.targetJsFolder + '/angular2-in-memory-web-api'));
     });
 
-    gulp.task('move-systemConfigJs' , () => {
+    gulp.task('move-systemConfigJs' , function() {
         gulp.src(config.systemConfigJs)
         .pipe(gulp.dest(config.rootJsFolder))
     });
 
-    gulp.task('move-baseJs', () => {
+    gulp.task('move-baseJs', function() {
         gulp.src(config.baseJsToMove)
             .pipe(gulp.dest(config.targetJsFolder))
     });   
