@@ -11,11 +11,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 const core_1 = require("@angular/core");
 const app_block_1 = require("./app.block");
 const app_service_1 = require("./app.service");
+const app_select_1 = require("./app.select");
+const app_times_1 = require("./app.times");
+const app_child_1 = require("./app.child");
 let SampleComponent = class SampleComponent {
     constructor(_userService) {
         this._userService = _userService;
-        this.hw = "Hello World!";
+        this.hw = "Hello World!111";
+        this.hwClass = "test";
         this.buttonClass = "special";
+        this.times = 5;
+        this.childComponentName = "child";
     }
     sayHello() {
         console.log("Hi!");
@@ -29,11 +35,14 @@ let SampleComponent = class SampleComponent {
     loadUser() {
         console.log(this._userService.get());
     }
+    childComponentValueChange(componentValue) {
+        this.childComponentValue = componentValue;
+    }
 };
 SampleComponent = __decorate([
     core_1.Component({
         selector: "sample",
-        directives: [app_block_1.UserBlockComponent],
+        directives: [app_block_1.UserBlockComponent, app_select_1.SelectDirective, app_times_1.TimesDirective, app_child_1.ChildComponent],
         providers: [app_service_1.UserService],
         template: `
         <p>{{hw}}</p>
@@ -42,7 +51,15 @@ SampleComponent = __decorate([
         <button [class]="hwClass" (click)="printName()">Say Name</button>
         <button [class]="hwClass" (click)="changeName()">Change Name</button>
         <button [class]="hwClass" (click)="loadUser()">loadUser</button>        
-        <edge-userBlock></edge-userBlock>                        
+        <edge-userBlock></edge-userBlock>  
+        <span [edge-select]>I have a green border!</span>     
+        <div [edge-select]="'#89000e'">My border is red!</div>
+        <div *edgeTimes="times">
+            <span>This gets copied {{times}}</span>
+        </div>                    
+        <child-component [componentName]="childComponentName" (onComponentValueChange)="childComponentValueChange($event)">
+         </child-component>
+         <span>{{childComponentValue}}</span>   
     `
     }), 
     __metadata('design:paramtypes', [app_service_1.UserService])

@@ -9,13 +9,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require("@angular/core");
-let AppComponent = class AppComponent {
+let SignupComponent = class SignupComponent {
 };
-AppComponent = __decorate([
+SignupComponent = __decorate([
     core_1.Component({
-        selector: "my-app",
-        template: "<h1>My First Angular 2 App</h1>"
+        selector: "edge-signup",
+        template: "<h1>Signup Page</h1>",
     }), 
     __metadata('design:paramtypes', [])
-], AppComponent);
-exports.AppComponent = AppComponent;
+], SignupComponent);
+exports.SignupComponent = SignupComponent;
