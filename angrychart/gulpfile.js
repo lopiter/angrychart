@@ -8,6 +8,7 @@ var tsProject = ts.createProject('tsconfig.json');
 var rootJsPath = '../sample/src/main/resources/static';
 var baseJsPath = 'base';
 var appPath = '../sample/src/main/resources/static/app';
+var targetAppPath = '../sample/target/classes/static/app';
 
 
 config = {
@@ -62,7 +63,7 @@ config = {
     gulp.task('tsc', function() {
     return gulp.src('./source/**/**.ts')
             .pipe(ts(tsProject))           
-            .js.pipe(gulp.dest(appPath));
+            .js.pipe(gulp.dest(appPath)).pipe(gulp.dest(targetAppPath));
     });
 
     gulp.task('watch', function () {
