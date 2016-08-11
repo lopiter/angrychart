@@ -47,19 +47,19 @@ jspm_packages
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff:
-.idea/workspace.xml
-.idea/tasks.xml
-.idea/dictionaries
-.idea/vcs.xml
-.idea/jsLibraryMappings.xml
+./sample/idea/workspace.xml
+./sample/idea/tasks.xml
+./sample/idea/dictionaries
+./sample/idea/vcs.xml
+./sample/idea/jsLibraryMappings.xml
 
 # Sensitive or high-churn files:
-.idea/dataSources.ids
-.idea/dataSources.xml
-.idea/dataSources.local.xml
-.idea/sqlDataSources.xml
-.idea/dynamic.xml
-.idea/uiDesigner.xml
+./sample/idea/dataSources.ids
+./sample/idea/dataSources.xml
+./sample/idea/dataSources.local.xml
+./sample/idea/sqlDataSources.xml
+./sample/idea/dynamic.xml
+./sample/idea/uiDesigner.xml
 
 # Gradle:
 .idea/gradle.xml
@@ -99,20 +99,20 @@ fabric.properties
 
 ### Eclipse ###
 
-.metadata
-bin/
-tmp/
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.settings/
-.loadpath
-.recommenders
+./sample/metadata
+./sample/bin/
+./sample/tmp/
+./sample/*.tmp
+./sample/*.bak
+./sample/*.swp
+./sample/*~.nib
+./sample/local.properties
+./sample/settings/
+./sample/loadpath
+./sample/recommenders
 
 # Eclipse Core
-.project
+./sample/project
 
 # External tool builders
 .externalToolBuilders/
@@ -136,7 +136,7 @@ local.properties
 .buildpath
 
 # sbteclipse plugin
-.target
+./sample/target
 
 # Tern plugin
 .tern-project
