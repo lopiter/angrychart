@@ -34,7 +34,7 @@ export class SampleComponent {
         this.childComponentName = "child";
     }
 
-    public hw = "Hello World!111";
+    public hw = "Hello World is good";
     public hwClass = "test";
     public buttonClass = "special";
     public name: string;

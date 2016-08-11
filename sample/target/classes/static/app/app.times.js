@@ -9,13 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require("@angular/core");
-let AppComponent = class AppComponent {
+let TimesDirective = class TimesDirective {
+    constructor(_viewContainer, _templateRef) {
+        this._viewContainer = _viewContainer;
+        this._templateRef = _templateRef;
+    }
+    set edgeTimes(times) {
+        this._viewContainer.clear();
+        for (let i = 0; i < times; i++)
+            this._viewContainer.createEmbeddedView(this._templateRef);
+    }
 };
-AppComponent = __decorate([
-    core_1.Component({
-        selector: "my-app",
-        template: "<h1>My First Angular 2 App</h1>"
-    }), 
-    __metadata('design:paramtypes', [])
-], AppComponent);
-exports.AppComponent = AppComponent;
+__decorate([
+    core_1.Input(), 
+    __metadata('design:type', Number), 
+    __metadata('design:paramtypes', [Number])
+], TimesDirective.prototype, "edgeTimes", null);
+TimesDirective = __decorate([
+    core_1.Directive({ selector: "[edgeTimes]" }), 
+    __metadata('design:paramtypes', [core_1.ViewContainerRef, core_1.TemplateRef])
+], TimesDirective);
+exports.TimesDirective = TimesDirective;
