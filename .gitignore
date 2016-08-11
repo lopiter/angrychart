@@ -47,19 +47,7 @@ jspm_packages
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff:
-sample/idea/workspace.xml
-sample/idea/tasks.xml
-sample/idea/dictionaries
-sample/idea/vcs.xml
-sample/idea/jsLibraryMappings.xml
-
-# Sensitive or high-churn files:
-sample/idea/dataSources.ids
-sample/idea/dataSources.xml
-sample/idea/dataSources.local.xml
-sample/idea/sqlDataSources.xml
-sample/idea/dynamic.xml
-sample/idea/uiDesigner.xml
+sample/.idea
 
 # Gradle:
 .idea/gradle.xml
@@ -77,7 +65,7 @@ sample/idea/uiDesigner.xml
 /out/
 
 # mpeltonen/sbt-idea plugin
-.idea_modules/
+sample/.idea_modules/
 
 # JIRA plugin
 atlassian-ide-plugin.xml
