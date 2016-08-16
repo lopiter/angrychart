@@ -34,7 +34,7 @@ export class SampleComponent {
         this.childComponentName = "child";
     }
 
-    public hw = "Hello World is good";
+    public hw = "Hello World is";
     public hwClass = "test";
     public buttonClass = "special";
     public name: string;
@@ -59,5 +59,6 @@ export class SampleComponent {
 
     childComponentValueChange(componentValue) {
      this.childComponentValue = componentValue;
+     console.log(jQuery("button").length);
    }
 }
