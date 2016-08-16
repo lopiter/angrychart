@@ -42,4 +42,4 @@ var baseJs = 'base';
 ## Let's Play
 1. mvn spring-boot:run
 2. cd angrychat directory
-3. gulp watch 
+3. gulp watch

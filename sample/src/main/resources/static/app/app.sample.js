@@ -17,7 +17,7 @@ const app_child_1 = require("./app.child");
 let SampleComponent = class SampleComponent {
     constructor(_userService) {
         this._userService = _userService;
-        this.hw = "Hello World is good";
+        this.hw = "Hello World is";
         this.hwClass = "test";
         this.buttonClass = "special";
         this.times = 5;
@@ -37,6 +37,7 @@ let SampleComponent = class SampleComponent {
     }
     childComponentValueChange(componentValue) {
         this.childComponentValue = componentValue;
+        console.log(jQuery("button").length);
     }
 };
 SampleComponent = __decorate([
