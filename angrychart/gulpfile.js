@@ -21,7 +21,9 @@ config = {
         baseJsToFolders: {
             'rxjs': 'node_modules/rxjs/**/**.js',
             'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api/**/**.js',
-            'angular': 'node_modules/@angular/**/**.js'
+            'angular': 'node_modules/@angular/**/**.js',
+            'ng2-bootstrap': 'node_modules/ng2-bootstrap/**/**.js',
+            'moment': 'node_modules/moment/**/**.js'
         },
 
         rootJsFolder  : rootJsPath,
@@ -36,6 +38,12 @@ config = {
 
         gulp.src(config.baseJsToFolders.rxjs)
             .pipe(gulp.dest(config.targetJsFolder + '/rxjs'));
+
+        gulp.src(config.baseJsToFolders['ng2-bootstrap'])
+            .pipe(gulp.dest(config.targetJsFolder + '/ng2-bootstrap'));
+
+        gulp.src(config.baseJsToFolders['moment'])
+            .pipe(gulp.dest(config.targetJsFolder + '/moment'));            
 
         gulp.src(config.baseJsToFolders['angular2-in-memory-web-api'])
             .pipe(gulp.dest(config.targetJsFolder + '/angular2-in-memory-web-api'));

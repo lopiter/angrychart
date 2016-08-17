@@ -60,7 +60,11 @@ SampleComponent = __decorate([
         </div>                    
         <child-component [componentName]="childComponentName" (onComponentValueChange)="childComponentValueChange($event)">
          </child-component>
-         <span>{{childComponentValue}}</span>   
+         <span>{{childComponentValue}}</span> 
+
+        <alert dismissOnTimeout="3000">This alert will dismiss in 3s</alert>
+        
+        <button type="button" class='btn btn-primary' (click)="addAlert()">Add Alert</button>           
     `
     }), 
     __metadata('design:paramtypes', [app_service_1.UserService])

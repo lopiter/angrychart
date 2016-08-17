@@ -1,26 +1,34 @@
 import { Component, Inject } from "@angular/core";
 import { CommonChartService } from "./chart/common.component";
+import { AlertComponent } from 'ng2-bootstrap/ng2-bootstrap';
+import {CORE_DIRECTIVES} from '@angular/common';
 
 @Component({
     selector: 'chart',
     providers: [CommonChartService],
+    directives: [AlertComponent, CORE_DIRECTIVES],
     template: `
+        <alert>This is Bar Chart</alert>
         <button [class]="hwClass" (click)="showBarChart()">show bar chart</button>
         <br />
         <canvas id='chart1' width='600' height='400'></canvas>
         <br />
+        <alert>This is Line Chart</alert>
         <button [class]="hwClass" (click)="showLineChart()">show line chart</button>
         <br />
         <canvas id='chart3' width='600' height='400'></canvas>
         <br />
+        <alert>This is Radarar Chart</alert>
         <button [class]="hwClass" (click)="showRadarChart()">show radar chart</button>
         <br />
         <canvas id='chart4' width='600' height='400'></canvas>
         <br />
+        <alert>This is Pie Chart</alert>
         <button [class]="hwClass" (click)="showPieChart()">show Pie Chart</button>
         <br />
         <canvas id='chart5' width='600' height='400'></canvas>
         <br />
+        <alert>This is Polar Chart</alert>
         <button [class]="hwClass" (click)="showPolarAreaChart()">show PolarArea Chart</button>
         <br />
         <canvas id='chart6' width='600' height='400'></canvas>

@@ -4,6 +4,7 @@ import {UserService} from "./app.service";
 import {SelectDirective} from "./app.select";
 import {TimesDirective} from "./app.times";
 import {ChildComponent} from "./app.child";
+import { AlertComponent } from 'ng2-bootstrap/ng2-bootstrap';
 
 
 @Component({
@@ -25,7 +26,11 @@ import {ChildComponent} from "./app.child";
         </div>                    
         <child-component [componentName]="childComponentName" (onComponentValueChange)="childComponentValueChange($event)">
          </child-component>
-         <span>{{childComponentValue}}</span>   
+         <span>{{childComponentValue}}</span> 
+
+        <alert dismissOnTimeout="3000">This alert will dismiss in 3s</alert>
+        
+        <button type="button" class='btn btn-primary' (click)="addAlert()">Add Alert</button>           
     `
 })
 
