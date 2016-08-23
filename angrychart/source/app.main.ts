@@ -1,139 +1,20 @@
 import {Component} from "@angular/core";
-import {UserBlockComponent} from "./app.block";
-import {UserService} from "./app.service";
-import {SelectDirective} from "./app.select";
-import {TimesDirective} from "./app.times";
-import {ChildComponent} from "./app.child";
-import { AlertComponent } from 'ng2-bootstrap/ng2-bootstrap';
-
+import {NavigationComponent} from "./app.navigation";
+import {HeaderComponent} from "./app.header";
+import {ImageSectionComponent} from "./app.section.image";
 
 @Component({
     selector: "main",
-    directives: [UserBlockComponent , SelectDirective , TimesDirective , ChildComponent],
-    providers: [UserService],
+    directives: [NavigationComponent, HeaderComponent, ImageSectionComponent],
     template: `
-
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#about">About</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
+    <navigation [title]="title"></navigation>
 
     <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <img class="img-responsive" src="img/profile.png" alt="">
-                    <div class="intro-text">
-                        <span class="name">Start Bootstrap</span>
-                        <hr class="star-light">
-                        <span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+    <header [title]="title" [description]="headDescription"></header>
+
 
     <!-- Portfolio Grid Section -->
-    <section id="portfolio">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Portfolio</h2>
-                    <hr class="star-primary">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/cabin.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/cake.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/circus.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/game.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/safe.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    <img-section></img-section>
 
     <!-- About Section -->
     <section class="success" id="about">
@@ -497,35 +378,7 @@ import { AlertComponent } from 'ng2-bootstrap/ng2-bootstrap';
 })
 
 export class MainComponent {
-    constructor(private _userService: UserService) {
-        this.childComponentName = "child";
-    }
-
-    public hw = "Hello World is";
-    public hwClass = "test";
-    public buttonClass = "special";
-    public name: string;
-    public times: number = 5;
-    public childComponentName: string;
-    public childComponentValue: string;
-
-    sayHello() {
-        console.log("Hi!");
-    }
-
-    printName() {
-        console.log(this.name);
-    }
-
-    changeName() {
-        this.name = "changed!!";
-    }
-    loadUser() {
-        console.log(this._userService.get());
-    }
-
-    childComponentValueChange(componentValue) {
-     this.childComponentValue = componentValue;
-     console.log(jQuery("button").length);
-   }
+    private title: string = "Angry Chart"
+    private headTitle: string = "Angry Chart"
+    private headDescription: string = "Angry Angry Angry"
 }
