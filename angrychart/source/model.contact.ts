@@ -8,7 +8,7 @@ export class ContactModel{
     private validationMessage: String;
 
     constructor(label: string , type: ContactFieldType , placeHolder: string,
-                id: string ,required: boolean ,  validationMessage: string) {
+                id: string , required: boolean ,  validationMessage: string) {
         this.label = label;
         this.type = type;
         this.placeHolder = placeHolder;
@@ -19,5 +19,5 @@ export class ContactModel{
 }
 
 export enum ContactFieldType{
-    TEXT , TEXTAREA
+    TEXT , TEXTAREA , EMAIL , TEL
 }

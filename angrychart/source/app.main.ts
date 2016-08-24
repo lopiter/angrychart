@@ -24,7 +24,7 @@ import {ContactModel , ContactFieldType} from "./model.contact";
     <about-section></about-section>
 
     <!-- Contact Section -->
-    <contact-section></contact-section>
+    <contact-section [fields]="contactFields"></contact-section>
 
     <!-- Footer -->
     <footer class="text-center">
@@ -317,4 +317,11 @@ export class MainComponent {
         {img: "img/chart/bar-chart.png"},
         {img: "img/chart/pie-chart.png"}
     ];
+
+    private contactFields = [
+        new ContactModel("Name" , ContactFieldType.TEXT , "Name" , "name" , false , "Please enter your name."),
+        new ContactModel("Email Address" , ContactFieldType.EMAIL , "Email Address" , "email" , true , "Please enter your email address."),
+        new ContactModel("Phone Number" , ContactFieldType.TEL , "Phone Number" , "phone" , true , "Please enter your phone number."),
+        new ContactModel("Message" , ContactFieldType.TEXTAREA , "Message" , "message" , true , "Please enter a message.")
+    ]
 }
