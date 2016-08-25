@@ -4,12 +4,14 @@ import {HeaderComponent} from "./app.header";
 import {ImageSectionComponent} from "./app.section.image";
 import {AboutSectionComponent} from "./app.section.about";
 import {ContactSectionComponent} from "./app.section.contact";
+import {FooterSectionComponent} from "./app.section.footer";
 import {ContactModel , ContactFieldType} from "./model.contact";
+
 
 @Component({
     selector: "main",
     directives: [NavigationComponent, HeaderComponent, ImageSectionComponent , 
-                 AboutSectionComponent, ContactSectionComponent],
+                 AboutSectionComponent, ContactSectionComponent , FooterSectionComponent],
     template: `
     <navigation [title]="title"></navigation>
 
@@ -27,52 +29,7 @@ import {ContactModel , ContactFieldType} from "./model.contact";
     <contact-section [fields]="contactFields"></contact-section>
 
     <!-- Footer -->
-    <footer class="text-center">
-        <div class="footer-above">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-col col-md-4">
-                        <h3>Location</h3>
-                        <p>3481 Melrose Place
-                            <br>Beverly Hills, CA 90210</p>
-                    </div>
-                    <div class="footer-col col-md-4">
-                        <h3>Around the Web</h3>
-                        <ul class="list-inline">
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footer-col col-md-4">
-                        <h3>About Freelancer</h3>
-                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-below">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        Copyright &copy; Your Website 2016
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <footer-section [location]="location" [description]="footerDescription" [copyright]="copyright" [contributor]="contributor"></footer-section>
 
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
     <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
@@ -324,4 +281,10 @@ export class MainComponent {
         new ContactModel("Phone Number" , ContactFieldType.TEL , "Phone Number" , "phone" , true , "Please enter your phone number."),
         new ContactModel("Message" , ContactFieldType.TEXTAREA , "Message" , "message" , true , "Please enter a message.")
     ]
+
+    private location: string = "11, Hwangsaeul-ro 359beon-gil<br>Bundang-gu, Seongnam-si, Gyeonggi-do"
+    private footerDescription: string = "AngryChart is a free to use, open source Bootstrap Freelance theme"
+    private copyright: string = "Copyright &copy; NOP 2016"
+    private contributor : "songeunwoo<br>lopiter<br>kyoungwonkang"
+
 }
