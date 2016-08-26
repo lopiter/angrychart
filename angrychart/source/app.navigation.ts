@@ -1,4 +1,4 @@
-import {Component , Input} from "@angular/core";
+import {Component , Input , AfterViewChecked} from "@angular/core";
 
 @Component({
     selector: "navigation",
@@ -20,14 +20,8 @@ import {Component , Input} from "@angular/core";
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li class="page-scroll">
-                        <a href="#portfolio">Portfolio</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#about">About</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#contact">Contact</a>
+                    <li class="page-scroll" *ngFor="let menu of menus;">
+                        <a href="{{menu.url}}">{{menu.name}}</a>
                     </li>
                 </ul>
             </div>
@@ -38,6 +32,33 @@ import {Component , Input} from "@angular/core";
     `
 })
 
-export class NavigationComponent {
+export class NavigationComponent implements AfterViewChecked{
     @Input() title: string;
+    @Input() menus: any[];
+
+    ngAfterViewChecked(){
+    $('.page-scroll a').bind('click', function(event) {
+        let $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: ($($anchor.attr('href')).offset().top - 50)
+        }, 1250, 'easeInOutExpo');
+        event.preventDefault();
+    });
+
+    $('.navbar-collapse ul li a:not(.dropdown-toggle)').click(function() {
+        $('.navbar-toggle:visible').click();
+    });
+
+    $('body').scrollspy({
+        target: '.navbar-fixed-top',
+        offset: 51
+    });
+
+    // Offset for Main Navigation
+    $('#mainNav').affix({
+        offset: {
+            top: 100
+        }
+    })            
+    }
 }

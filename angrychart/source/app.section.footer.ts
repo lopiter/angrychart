@@ -13,11 +13,11 @@ import {Component , Input} from "@angular/core";
                     </div>                    
                     <div class="footer-col col-md-4">
                         <h3>LICENSE</h3>
-                        <p>{{description}}}</p>
+                        <p>{{description}}</p>
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>CONTRIBUTOR</h3>
-                        <p  [innerHTML]="contributor"></p>
+                        <p [innerHTML]="contributor"></p>
                     </div>                    
                 </div>
             </div>
@@ -39,5 +39,5 @@ export class FooterSectionComponent {
     @Input() location: string;
     @Input() description: string;
     @Input() copyright: string;
-    @Input() contributor: string;
+    @Input() contributor: string = "a"
 }

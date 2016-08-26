@@ -10,6 +10,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 const core_1 = require("@angular/core");
 let FooterSectionComponent = class FooterSectionComponent {
+    constructor() {
+        this.contributor = "a";
+    }
 };
 __decorate([
     core_1.Input(), 
@@ -41,11 +44,11 @@ FooterSectionComponent = __decorate([
                     </div>                    
                     <div class="footer-col col-md-4">
                         <h3>LICENSE</h3>
-                        <p>{{description}}}</p>
+                        <p>{{description}}</p>
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>CONTRIBUTOR</h3>
-                        <p  [innerHTML]="contributor"></p>
+                        <p [innerHTML]="contributor"></p>
                     </div>                    
                 </div>
             </div>

@@ -21,3 +21,18 @@ export class ContactModel{
 export enum ContactFieldType{
     TEXT , TEXTAREA , EMAIL , TEL
 }
+
+export class ImageModel{
+    private title: string;
+    private url: string;
+    private id: string;
+    private description: string;    
+
+    constructor(title: string , url: string , id: string, description: string) {
+    this.title = title;
+    this.url = url;
+    this.id = id;
+    this.id = id;
+    this.description = description;
+    }    
+}

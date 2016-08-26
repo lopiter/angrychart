@@ -1,5 +1,5 @@
 import {Component , Input} from "@angular/core";
-import {ContactModel , ContactFieldType} from "./model.contact";
+import {ContactModel , ContactFieldType} from "./model";
 
 @Component({
     selector: "contact-section",
