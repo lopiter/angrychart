@@ -1,47 +1,23 @@
-import { Component, Inject } from "@angular/core";
+import { Component, Inject ,Input ,AfterViewChecked} from "@angular/core";
 import { CommonChartService } from "./chart/common.component";
-import { AlertComponent } from 'ng2-bootstrap/ng2-bootstrap';
-import {CORE_DIRECTIVES} from '@angular/common';
+
 
 @Component({
-    selector: 'chart',
-    providers: [CommonChartService],
-    directives: [AlertComponent, CORE_DIRECTIVES],
+    selector: "chart",
     template: `
-        <alert>This is Bar Chart</alert>
-        <button [class]="hwClass" (click)="showBarChart()">show bar chart</button>
-        <br />
-        <canvas id='chart1' width='600' height='400'></canvas>
-        <br />
-        <alert>This is Line Chart</alert>
-        <button [class]="hwClass" (click)="showLineChart()">show line chart</button>
-        <br />
-        <canvas id='chart3' width='600' height='400'></canvas>
-        <br />
-        <alert>This is Radarar Chart</alert>
-        <button [class]="hwClass" (click)="showRadarChart()">show radar chart</button>
-        <br />
-        <canvas id='chart4' width='600' height='400'></canvas>
-        <br />
-        <alert>This is Pie Chart</alert>
-        <button [class]="hwClass" (click)="showPieChart()">show Pie Chart</button>
-        <br />
-        <canvas id='chart5' width='600' height='400'></canvas>
-        <br />
-        <alert>This is Polar Chart</alert>
-        <button [class]="hwClass" (click)="showPolarAreaChart()">show PolarArea Chart</button>
-        <br />
-        <canvas id='chart6' width='600' height='400'></canvas>
-        <br />
-  `
+    <canvas id='{{id}}' width='600' height='400'></canvas>
+    `
 })
-export class ChartComponent{
+
+export class ChartComponent implements AfterViewChecked{
     public ctx: any;
     public canvas: any;
     private _commonChartService: CommonChartService;
     constructor(@Inject(CommonChartService) _commonChartService: CommonChartService) {
         this._commonChartService = _commonChartService;
     }
+
+    private init = false;
 
     private extracted(canvasId, chartData) {
         this.canvas = <HTMLCanvasElement> document.getElementById(canvasId);
@@ -51,34 +27,15 @@ export class ChartComponent{
         }
     }
 
-    public showBarChart(): void{
+    ngAfterViewChecked() {
+        if(this.init == false){
+        this.init = true;    
         let barChart: ChartInstance;
-        this.extracted("chart1", barChart);
+        this.extracted(this.id, barChart);
         new Chart(this.ctx).Bar(this._commonChartService.BarChartService.getBarData(), this._commonChartService.BarChartService.getBarOpts());
+        }        
     }
 
-    public showLineChart() {
-        let lineChart: LinearInstance;
-        this.extracted("chart3", lineChart);
-        new Chart(this.ctx).Line(this._commonChartService.lineChartService.getLineData(), this._commonChartService.lineChartService.getLineOpts());
-    }
-
-    public showRadarChart() {
-        let radarChart: ChartInstance;
-        this.extracted("chart4", radarChart);
-        new Chart(this.ctx).Radar(this._commonChartService.radarChartService.getRadarData(), this._commonChartService.radarChartService.getRadarOpts());
-    }
-
-    public showPieChart() {
-        let pieChart: CircularInstance;
-        this.extracted("chart5", pieChart);
-        new Chart(this.ctx).Pie(this._commonChartService.pieChartService.getPieData(), this._commonChartService.pieChartService.getPieOpts());
-    }
-
-    public showPolarAreaChart() {
-        let polarAreaChart: CircularInstance;
-        this.extracted("chart6", polarAreaChart);
-        new Chart(this.ctx).Pie(this._commonChartService.polarAreaChartService.getPolarAreaData(), this._commonChartService.polarAreaChartService.getPolarAreaOpts());
-    }
-
+    @Input() id: string
+    @Input() type: string
 }

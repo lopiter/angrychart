@@ -13,10 +13,9 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 const core_1 = require("@angular/core");
 const common_component_1 = require("./chart/common.component");
-const ng2_bootstrap_1 = require('ng2-bootstrap/ng2-bootstrap');
-const common_1 = require('@angular/common');
 let ChartComponent = class ChartComponent {
     constructor(_commonChartService) {
+        this.init = false;
         this._commonChartService = _commonChartService;
     }
     extracted(canvasId, chartData) {
@@ -26,64 +25,29 @@ let ChartComponent = class ChartComponent {
             animation: true
         };
     }
-    showBarChart() {
-        let barChart;
-        this.extracted("chart1", barChart);
-        new Chart(this.ctx).Bar(this._commonChartService.BarChartService.getBarData(), this._commonChartService.BarChartService.getBarOpts());
-    }
-    showLineChart() {
-        let lineChart;
-        this.extracted("chart3", lineChart);
-        new Chart(this.ctx).Line(this._commonChartService.lineChartService.getLineData(), this._commonChartService.lineChartService.getLineOpts());
-    }
-    showRadarChart() {
-        let radarChart;
-        this.extracted("chart4", radarChart);
-        new Chart(this.ctx).Radar(this._commonChartService.radarChartService.getRadarData(), this._commonChartService.radarChartService.getRadarOpts());
-    }
-    showPieChart() {
-        let pieChart;
-        this.extracted("chart5", pieChart);
-        new Chart(this.ctx).Pie(this._commonChartService.pieChartService.getPieData(), this._commonChartService.pieChartService.getPieOpts());
-    }
-    showPolarAreaChart() {
-        let polarAreaChart;
-        this.extracted("chart6", polarAreaChart);
-        new Chart(this.ctx).Pie(this._commonChartService.polarAreaChartService.getPolarAreaData(), this._commonChartService.polarAreaChartService.getPolarAreaOpts());
+    ngAfterViewChecked() {
+        if (this.init == false) {
+            this.init = true;
+            let barChart;
+            this.extracted(this.id, barChart);
+            new Chart(this.ctx).Bar(this._commonChartService.BarChartService.getBarData(), this._commonChartService.BarChartService.getBarOpts());
+        }
     }
 };
+__decorate([
+    core_1.Input(), 
+    __metadata('design:type', String)
+], ChartComponent.prototype, "id", void 0);
+__decorate([
+    core_1.Input(), 
+    __metadata('design:type', String)
+], ChartComponent.prototype, "type", void 0);
 ChartComponent = __decorate([
     core_1.Component({
-        selector: 'chart',
-        providers: [common_component_1.CommonChartService],
-        directives: [ng2_bootstrap_1.AlertComponent, common_1.CORE_DIRECTIVES],
+        selector: "chart",
         template: `
-        <alert>This is Bar Chart</alert>
-        <button [class]="hwClass" (click)="showBarChart()">show bar chart</button>
-        <br />
-        <canvas id='chart1' width='600' height='400'></canvas>
-        <br />
-        <alert>This is Line Chart</alert>
-        <button [class]="hwClass" (click)="showLineChart()">show line chart</button>
-        <br />
-        <canvas id='chart3' width='600' height='400'></canvas>
-        <br />
-        <alert>This is Radarar Chart</alert>
-        <button [class]="hwClass" (click)="showRadarChart()">show radar chart</button>
-        <br />
-        <canvas id='chart4' width='600' height='400'></canvas>
-        <br />
-        <alert>This is Pie Chart</alert>
-        <button [class]="hwClass" (click)="showPieChart()">show Pie Chart</button>
-        <br />
-        <canvas id='chart5' width='600' height='400'></canvas>
-        <br />
-        <alert>This is Polar Chart</alert>
-        <button [class]="hwClass" (click)="showPolarAreaChart()">show PolarArea Chart</button>
-        <br />
-        <canvas id='chart6' width='600' height='400'></canvas>
-        <br />
-  `
+    <canvas id='{{id}}' width='600' height='400'></canvas>
+    `
     }),
     __param(0, core_1.Inject(common_component_1.CommonChartService)), 
     __metadata('design:paramtypes', [common_component_1.CommonChartService])

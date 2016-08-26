@@ -15,7 +15,6 @@ const app_section_image_1 = require("./app.section.image");
 const app_section_about_1 = require("./app.section.about");
 const app_section_contact_1 = require("./app.section.contact");
 const app_section_footer_1 = require("./app.section.footer");
-const model_1 = require("./model");
 let MainComponent = class MainComponent {
     constructor() {
         this.title = "Angry Chart";
@@ -23,26 +22,11 @@ let MainComponent = class MainComponent {
         this.headDescription = "This is AngryChart";
         this.imgSectionTitle = "Charts";
         this.menus = [
-            { name: "charts", url: "#portfolio" },
-            { name: "about", url: "#about" },
-            { name: "contact", url: "#contact" },
-            { name: "demo", url: "http://www.naver.com" }
+            { name: "charts", url: "#portfolio", route: false },
+            { name: "about", url: "#about", route: false },
+            { name: "contact", url: "#contact", route: false },
+            { name: "demo", url: "/demo", route: true }
         ];
-        this.charts = [
-            new model_1.ImageModel("LineChart", "img/chart/line-chart.png", "linechart", "A line chart is a way of plotting data points on a line. Often, it is used to show trend data, and the comparison of two data sets."),
-            new model_1.ImageModel("BarChart", "img/chart/bar-chart.png", "barchart", "A bar chart is a way of showing data as bars.<br>It is sometimes used to show trend data, and the comparison of multiple data sets side by side."),
-            new model_1.ImageModel("PieChart", "img/chart/pie-chart.png", "piechart", ""),
-        ];
-        this.contactFields = [
-            new model_1.ContactModel("Name", model_1.ContactFieldType.TEXT, "Name", "name", false, "Please enter your name."),
-            new model_1.ContactModel("Email Address", model_1.ContactFieldType.EMAIL, "Email Address", "email", true, "Please enter your email address."),
-            new model_1.ContactModel("Phone Number", model_1.ContactFieldType.TEL, "Phone Number", "phone", true, "Please enter your phone number."),
-            new model_1.ContactModel("Message", model_1.ContactFieldType.TEXTAREA, "Message", "message", true, "Please enter a message.")
-        ];
-        this.location = "11, Hwangsaeul-ro 359beon-gil<br>Bundang-gu, Seongnam-si, Gyeonggi-do";
-        this.footerDescription = "AngryChart is a free to use, open source Bootstrap Freelance theme";
-        this.copyright = "Copyright &copy; NOP 2016";
-        this.contributor = "songeunwoo<br>lopiter<br>kyoungwonkang";
     }
     ngAfterViewChecked() {
         $(function () {
@@ -67,25 +51,8 @@ MainComponent = __decorate([
     <!-- Header -->
     <header [title]="title" [description]="headDescription"></header>
 
+    <router-outlet></router-outlet>
 
-    <!-- Portfolio Grid Section -->
-    <img-section [id]="charts" [charts]="charts" [title]="imgSectionTitle"></img-section>
-
-    <!-- About Section -->
-    <about-section></about-section>
-
-    <!-- Contact Section -->
-    <contact-section [fields]="contactFields"></contact-section>
-
-    <!-- Footer -->
-    <footer-section [location]="location" [description]="footerDescription" [copyright]="copyright" [contributor]="contributor"></footer-section>
-
-    <!-- Scroll to Top Button (Only vi1sible on small and extra-small screen sizes) -->
-    <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
-        <a class="btn btn-primary" href="#page-top">
-            <i class="fa fa-chevron-up"></i>
-        </a>
-    </div>     
     `
     }), 
     __metadata('design:paramtypes', [])

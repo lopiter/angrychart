@@ -20,8 +20,9 @@ import {Component , Input , AfterViewChecked} from "@angular/core";
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li class="page-scroll" *ngFor="let menu of menus;">
-                        <a href="{{menu.url}}">{{menu.name}}</a>
+                    <li class="page-scroll" *ngFor="let menu of menus;" [ngSwitch]="menu.route">                        
+                        <a *ngSwitchCase="false" href="{{menu.url}}" >{{menu.name}}</a>
+                        <a *ngSwitchCase="true" [routerLink]="menu.url" >{{menu.name}}</a>
                     </li>
                 </ul>
             </div>

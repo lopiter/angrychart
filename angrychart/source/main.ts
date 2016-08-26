@@ -1,4 +1,3 @@
-import { bootstrap }    from "@angular/platform-browser-dynamic";
-import { MainComponent } from "./app.main";
-import { CommonChartService } from "./chart/common.component";
-bootstrap(MainComponent, [CommonChartService]);
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './module';
+platformBrowserDynamic().bootstrapModule(AppModule);
