@@ -1,6 +1,6 @@
-import {Injectable} from "@angular/core";
 
-@Injectable()
+import {PieChartData} from "../model.ts"
+
 export class PieChartService {
     private pieData: CircularChartData[] = [
         {
@@ -34,7 +34,18 @@ export class PieChartService {
         animateScale: false,
         legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<segments.length; i++){%><li><span style=\"background-color:<%=segments[i].fillColor%>\"></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>"
     }
-    getPieData() {
+    getPieData(data: PieChartData) {
+        let pieData: CircularChartData[]
+        for (let i = 0 ; i < data.getData.length ; i++){
+            pieData.push(
+                {
+                    value: data.getData[i],
+                    color: data.getColors[i],
+                    highlight: data.getHighlightColors[i],
+                    label: data.getLabels[i]
+                }
+            )
+        }
         return this.pieData;
     }
     

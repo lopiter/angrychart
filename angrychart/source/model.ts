@@ -36,3 +36,69 @@ export class ImageModel{
     this.description = description;
     }    
 }
+
+export class ChartModel{
+    private type : ChartType;
+    private id : string;
+    constructor(type: ChartType , id: string){
+        this.type = type
+        this.id = id
+    }
+
+    getId(){
+        return this.id;
+    }
+
+    getType(){
+        return this.type;
+    }    
+}
+
+export enum ChartType{
+    BAR, LINE, PIE
+}
+
+export class ChartData{
+    private labels: string[];
+    private data: number[]
+
+    constructor(labels: string[] , data: number[]){
+        this.labels = labels;
+        this.data = data;        
+    }    
+
+    public getLabels(){
+        return this.labels;
+    }
+
+    public getData(){
+        return this.data;
+    }    
+}
+
+export class BarChartData extends ChartData{
+
+}
+
+
+export class LineChartData extends ChartData{
+
+}
+
+export class PieChartData extends ChartData{
+    private colors: string[];
+    private highlightColors: string[];
+    constructor(labels: string[] , data: number[] , colors: string[] , highlightColors: string[]){
+        super(labels , data);
+        this.colors = colors;
+        this.highlightColors = highlightColors;
+    }
+
+    getColors(){
+        this.colors;
+    }
+
+    getHighlightColors(){
+        this.colors;
+    }
+}

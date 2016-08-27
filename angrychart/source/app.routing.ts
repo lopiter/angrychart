@@ -5,11 +5,11 @@ import { ChartDemoComponent }      from './app.demo';
 
 const appRoutes: Routes = [
   {
-    path: 'dfsf',
+    path: '',
     component: HomeComponent
   },
   {
-    path: '',
+    path: 'demo',
     component: ChartDemoComponent
   }
 ];

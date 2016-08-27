@@ -13,40 +13,47 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 const core_1 = require("@angular/core");
 const common_component_1 = require("./chart/common.component");
+const model_1 = require("./model");
 let ChartComponent = class ChartComponent {
     constructor(_commonChartService) {
         this.init = false;
         this._commonChartService = _commonChartService;
     }
-    extracted(canvasId, chartData) {
+    extracted(canvasId) {
         this.canvas = document.getElementById(canvasId);
         this.ctx = this.canvas.getContext("2d");
-        chartData = {
-            animation: true
-        };
     }
     ngAfterViewChecked() {
-        if (this.init == false) {
+        if (this.init === false) {
             this.init = true;
-            let barChart;
-            this.extracted(this.id, barChart);
-            new Chart(this.ctx).Bar(this._commonChartService.BarChartService.getBarData(), this._commonChartService.BarChartService.getBarOpts());
+            this.extracted(this.model.getId());
+            switch (this.model.getType()) {
+                case model_1.ChartType.BAR:
+                    this.chartInstance = new Chart(this.ctx).Bar(this._commonChartService.BarChartService.getBarData(this.data), this._commonChartService.BarChartService.getBarOpts());
+                    break;
+                case model_1.ChartType.LINE:
+                    this.chartInstance = new Chart(this.ctx).Line(this._commonChartService.lineChartService.getLineData(this.data), this._commonChartService.lineChartService.getLineOpts());
+                    break;
+                case model_1.ChartType.PIE:
+                    this.chartInstance = new Chart(this.ctx).Pie(this._commonChartService.pieChartService.getPieData(this.data), this._commonChartService.pieChartService.getPieOpts());
+                    break;
+            }
         }
     }
 };
 __decorate([
     core_1.Input(), 
-    __metadata('design:type', String)
-], ChartComponent.prototype, "id", void 0);
+    __metadata('design:type', model_1.ChartModel)
+], ChartComponent.prototype, "model", void 0);
 __decorate([
     core_1.Input(), 
-    __metadata('design:type', String)
-], ChartComponent.prototype, "type", void 0);
+    __metadata('design:type', model_1.ChartData)
+], ChartComponent.prototype, "data", void 0);
 ChartComponent = __decorate([
     core_1.Component({
         selector: "chart",
         template: `
-    <canvas id='{{id}}' width='600' height='400'></canvas>
+    <canvas id='{{model.id}}' width='600' height='400'></canvas>
     `
     }),
     __param(0, core_1.Inject(common_component_1.CommonChartService)), 

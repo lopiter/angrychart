@@ -199,7 +199,4 @@ interface Chart {
 
 declare var Chart: {
     new (context: CanvasRenderingContext2D): Chart;
-    defaults: {
-        global: ChartSettings;
-    }
 };

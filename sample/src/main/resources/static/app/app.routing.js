@@ -4,11 +4,11 @@ const app_home_1 = require('./app.home');
 const app_demo_1 = require('./app.demo');
 const appRoutes = [
     {
-        path: 'dfsf',
+        path: '',
         component: app_home_1.HomeComponent
     },
     {
-        path: '',
+        path: 'demo',
         component: app_demo_1.ChartDemoComponent
     }
 ];
