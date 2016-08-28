@@ -9,35 +9,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require("@angular/core");
-let MakemeRedDirective = class MakemeRedDirective {
+let MakemeBlueDirective = class MakemeBlueDirective {
     constructor(_el) {
         this._el = _el;
         this.selected = false;
-        this.borderColor = "#00897b";
-        _el.nativeElement.style.border = "2px solid #00897b";
+        _el.nativeElement.style.color = this.color;
     }
     onDoubleClick() {
         if (!this.selected) {
-            this._el.nativeElement.style.border = "2px solid" + this.borderColor;
+            this._el.nativeElement.style.color = this.color;
             this.selected = true;
         }
         else {
-            this._el.nativeElement.style.border = "none";
+            this._el.nativeElement.style.color = "black";
             this.selected = false;
         }
     }
 };
 __decorate([
-    core_1.Input("edge-select"), 
+    core_1.Input("makemeblue"), 
     __metadata('design:type', String)
-], MakemeRedDirective.prototype, "borderColor", void 0);
-MakemeRedDirective = __decorate([
+], MakemeBlueDirective.prototype, "color", void 0);
+MakemeBlueDirective = __decorate([
     core_1.Directive({
-        selector: "[makemered]",
+        selector: "[makemeblue]",
         host: {
             "(dblclick)": "onDoubleClick()"
         }
     }), 
     __metadata('design:paramtypes', [core_1.ElementRef])
-], MakemeRedDirective);
-exports.MakemeRedDirective = MakemeRedDirective;
+], MakemeBlueDirective);
+exports.MakemeBlueDirective = MakemeBlueDirective;

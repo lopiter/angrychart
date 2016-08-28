@@ -13,24 +13,23 @@ let MakemeRedDirective = class MakemeRedDirective {
     constructor(_el) {
         this._el = _el;
         this.selected = false;
-        this.borderColor = "#00897b";
-        _el.nativeElement.style.border = "2px solid #00897b";
+        _el.nativeElement.style.color = this.color;
     }
     onDoubleClick() {
         if (!this.selected) {
-            this._el.nativeElement.style.border = "2px solid" + this.borderColor;
+            this._el.nativeElement.style.color = this.color;
             this.selected = true;
         }
         else {
-            this._el.nativeElement.style.border = "none";
+            this._el.nativeElement.style.color = "white";
             this.selected = false;
         }
     }
 };
 __decorate([
-    core_1.Input("edge-select"), 
+    core_1.Input("makemered"), 
     __metadata('design:type', String)
-], MakemeRedDirective.prototype, "borderColor", void 0);
+], MakemeRedDirective.prototype, "color", void 0);
 MakemeRedDirective = __decorate([
     core_1.Directive({
         selector: "[makemered]",

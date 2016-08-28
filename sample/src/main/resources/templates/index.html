@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Freelancer - Start Bootstrap Theme</title>
+    <title>AngryChart</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -39,11 +39,39 @@
     <script>
         System.import('app').catch(function(err){ console.error(err); });
     </script>
+    <style>
+        .init-outer {
+            display: table;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+
+        .init-outer .middle {
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .init-outer .middle .inner {
+            margin-left: auto;
+            margin-right: auto;
+            width: 100px;
+        }
+    </style>
     <base href="/">
 </head>
 <!-- 3. Display the application -->
 <body id="page-top" class="index">
-<main>Loading...</main>
+
+<main>
+<div class="init-outer">
+    <div class="middle">
+        <div class="inner">
+            <img src="img/loading.gif"/>
+        </div>
+    </div>
+</div>
+</main>
 <!-- jQuery -->
 <script src="vendor/jquery/jquery.min.js"></script>
 

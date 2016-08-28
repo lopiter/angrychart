@@ -1,30 +1,27 @@
 import {Directive, ElementRef , Input} from "@angular/core";
 
 
-
 @Directive({
-    selector: "[edge-select]",
+    selector: "[makemered]",
     host: {
       "(dblclick)": "onDoubleClick()"
     }
 })
-export class SelectDirective {
+export class MakemeRedDirective {
     constructor(private _el: ElementRef) {
-        _el.nativeElement.style.border = "2px solid #00897b";
+        _el.nativeElement.style.color = this.color;
     }
 
     private selected: boolean = false;
 
-    @Input("edge-select") borderColor: string = "#00897b";
+    @Input("makemered") color: string;
 
     onDoubleClick() {
         if (!this.selected) {
-            this._el.nativeElement.style.border = "2px solid" + this.borderColor;
+            this._el.nativeElement.style.color = this.color;
             this.selected = true;
-        }
-
-        else {
-            this._el.nativeElement.style.border = "none";
+        }else {
+            this._el.nativeElement.style.color = "white"
             this.selected = false;
         }
     }

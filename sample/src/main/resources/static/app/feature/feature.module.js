@@ -9,23 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 const core_1 = require('@angular/core');
-const forms_1 = require('@angular/forms');
-const platform_browser_1 = require('@angular/platform-browser');
-const app_routing_1 = require('./app.routing');
-const app_main_1 = require('./app.main');
-const app_demo_1 = require('./app.demo');
-const common_component_1 = require("./chart/common.component");
-const app_singleton_1 = require("./app.singleton");
-const feature_module_1 = require("./feature/feature.module");
-let AppModule = class AppModule {
+const feature_makemeblue_1 = require("./feature.makemeblue");
+const feature_sample_1 = require("./feature.sample");
+const feature_singleton_1 = require("./feature.singleton");
+let FeatureModule = class FeatureModule {
 };
-AppModule = __decorate([
+FeatureModule = __decorate([
     core_1.NgModule({
-        imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, app_routing_1.routing, feature_module_1.FeatureModule],
-        declarations: [app_main_1.MainComponent, app_demo_1.ChartDemoComponent],
-        bootstrap: [app_main_1.MainComponent],
-        providers: [common_component_1.CommonChartService, app_singleton_1.SingletonTimeService]
+        declarations: [feature_sample_1.FeatureSampleComponent, feature_makemeblue_1.MakemeBlueDirective],
+        providers: [feature_singleton_1.SingletonTimeService],
+        exports: [feature_sample_1.FeatureSampleComponent]
     }), 
     __metadata('design:paramtypes', [])
-], AppModule);
-exports.AppModule = AppModule;
+], FeatureModule);
+exports.FeatureModule = FeatureModule;

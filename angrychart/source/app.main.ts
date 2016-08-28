@@ -31,10 +31,11 @@ export class MainComponent implements AfterViewChecked{
     private headDescription: string = "This is AngryChart"
     private imgSectionTitle: string = "Charts"
     private menus = [
-        {name : "charts" , url: "#portfolio" , route: false},
+        {name : "charts" , url: "#portfolio" , route: false}, 
         {name : "about" ,  url: "#about" , route: false},
         {name : "contact" , url: "#contact" , route: false},
-        {name : "demo" , url: "/demo" , route: true}
+        {name : "demo" , url: "/demo" , route: true},
+        {name : "sample" , url: "/sample" , route: true}
     ];
     ngAfterViewChecked(){
     $(function() {
