@@ -11,7 +11,7 @@ import { FeatureModule } from "./feature/feature.module";
 
 
 @NgModule({
-  imports:      [ BrowserModule ,FormsModule, routing, FeatureModule],
+  imports:      [ BrowserModule , FormsModule, routing, FeatureModule],
   declarations: [MainComponent, ChartDemoComponent],
   bootstrap:    [ MainComponent ],
   providers : [CommonChartService , SingletonTimeService]

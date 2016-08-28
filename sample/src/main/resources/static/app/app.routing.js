@@ -5,7 +5,7 @@ const app_demo_1 = require('./app.demo');
 const app_sample_1 = require('./app.sample');
 const appRoutes = [
     {
-        path: '1111',
+        path: '',
         component: app_home_1.HomeComponent
     },
     {
@@ -13,7 +13,7 @@ const appRoutes = [
         component: app_demo_1.ChartDemoComponent
     },
     {
-        path: '',
+        path: 'sample',
         component: app_sample_1.SampleComponent
     }
 ];

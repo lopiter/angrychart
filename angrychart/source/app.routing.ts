@@ -6,7 +6,7 @@ import { SampleComponent }      from './app.sample';
 
 const appRoutes: Routes = [
   {
-    path: '1111',
+    path: '',
     component: HomeComponent
   },
   {
@@ -14,7 +14,7 @@ const appRoutes: Routes = [
     component: ChartDemoComponent
   },
   {
-    path: '',
+    path: 'sample',
     component: SampleComponent
   }
 ];

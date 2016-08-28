@@ -13,8 +13,11 @@ import {Component , Input} from "@angular/core";
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-lg-offset-2">
-                        <p>AngryChart is a free AngularJS2 Component created by NOP. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+                        <p>AngryChart is a free AngularJS2 Component created by NOP.</p>
                     </div>
+                    <div class="col-lg-4 col-lg-offset-2">
+                        <p>The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+                    </div>                    
                 </div>
             </div>
         </section>
